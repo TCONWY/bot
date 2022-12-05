@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	bot, err := tgbotapi.NewBotAPI("5842591609:AAHzMaMQFK85yl9H4CtXJ7w0F9LvemKBxF8")
+	bot, err := tgbotapi.NewBotAPI("token_place")
 	if err != nil {
 		log.Panic(err)
 	}
@@ -26,7 +26,7 @@ func main() {
 			log.Printf("[%s] %s", update.Message.From.UserName, update.Message.Text)
 
 			msg := tgbotapi.NewMessage(update.Message.Chat.ID, update.Message.Text)
-			msg.ReplyToMessageID = update.Message.MessageID
+			// msg.ReplyToMessageID = update.Message.MessageID
 
 			bot.Send(msg)
 		}
